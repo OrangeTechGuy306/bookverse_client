@@ -47,7 +47,7 @@ export const EbookPage = () => {
     const fetchAllEbooks = async () => {
         setLoading(true)
         try {
-            const { data } = await axios.get(`${API_URL}/books`)
+            const { data } = await axios.get(`${API_URL}/all/ebook`)
             setBooks(data.message)
             setLoading(false)
             // eslint-disable-next-line
@@ -107,13 +107,13 @@ export const EbookPage = () => {
                         <button className="cursor-pointer" onClick={()=>sortBookByCategories("action")}>Action</button>
                         <button className="cursor-pointer" onClick={()=>sortBookByCategories("Fiction")}>Fiction</button>
                     </div>
-                    <h1 className="text-blue-600 font-bold mt-5">Filter by: <span className="text-black">Arrival</span> </h1>
+                    {/* <h1 className="text-blue-600 font-bold mt-5">Filter by: <span className="text-black">Arrival</span> </h1>
                     <div className="flex flex-col mt-5 items-start gap-3">
                         <button className="cursor-pointer">Newest</button>
                         <button className="cursor-pointer">Most Rated</button>
                         <button className="cursor-pointer">Most Popular</button>
                         <button className="cursor-pointer">Oldest</button>
-                    </div>
+                    </div> */}
                 </aside>
 
 

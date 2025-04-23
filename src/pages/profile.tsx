@@ -300,7 +300,7 @@ const ProfilePage = () => {
           user.favourite.map((fav, i)=>(
                 <div className="w-[250px] overflow-hidden rounded-md border" key={i}>
                     <div className="w-[100%] h-[250px] flex justify-center items-center overflow-hidden">
-                        <img src={fav.image_url} alt="" />
+                        <img src={`${IMAGE_URL}/${fav.image_url}`} alt="" />
                     </div>
                     <div className="p-3 flex flex-col gap-3" >
                         <h1 className=" font-bold">{TextTrim(fav.title)}</h1>

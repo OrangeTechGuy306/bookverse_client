@@ -78,7 +78,7 @@ const Homepage = () => {
         <hr />
         <div className="flex justify-center gap-5 flex-wrap mt-5">
           {
-            random&&random.length > 0 ? audios?.map((rand, i)=>(
+            random&&random.length > 0 ? random?.map((rand, i)=>(
               <BookCard 
                   key={i}
                   title={rand.title}

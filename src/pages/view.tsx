@@ -7,12 +7,14 @@ import { API_URL, IMAGE_URL } from "@/utils/server"
 import { Badge, Button, Input, Rate } from "antd"
 import { currentUser } from "@/utils/user"
 import { IoIosHeart } from "react-icons/io";
-
+import { TbPlayerPlayFilled } from "react-icons/tb";
 import moment from "moment"
-
+import { AudioPlayer } from "react-wave-audio-player";
 
 
 const ViewPage = () => {
+
+    
 
     const {id} = useParams()
     // const navigate = useNavigate()
@@ -21,6 +23,7 @@ const ViewPage = () => {
     const [rating, setRating] = useState(0)
     const [message, setMessage] = useState("")
     const [token, setToken] = useState("")
+    const [play, setPlay] = useState(false)
 
     // eslint-disable-next-line
     const addNewReview = async(e:any)=>{
@@ -98,10 +101,15 @@ const ViewPage = () => {
   return (
     <>
     <section className="min-h-screen flex pt-[100px] justify-center p-10 md:w-[90%] w-[100%] md:mx-[auto] gap-20 flex-wrap">
+
         <img src={`${IMAGE_URL}/${book?.coverUrl}`} alt="" className="md:w-[300px] w-[100%]"/>
+
         <div className="md:flex-1 w-[100%]">
+
             <div className="flex flex-col gap-2">
+
                 <h1 className="text-xl font-bold">{book?.title}</h1>
+
                 <small>By: {book?.author} published: {moment(book?.publishDate).format("DD-MM-YYYY")} </small>
 
                     <div className="flex gap-2 flex-wrap">
@@ -112,9 +120,11 @@ const ViewPage = () => {
                     count={5} 
                     allowHalf={true} 
                     // eslint-disable-next-line
-                    value={book?.rating as any} 
+                    value={book?.rating as any}
                 />
+
                 <p>{book?.description}</p>
+
                 <ul className="flex flex-col gap-2">
                     <li>ISBN: {book?.isbn}</li>
                     <li>Publisher: {book?.publisher}</li>
@@ -123,8 +133,18 @@ const ViewPage = () => {
                 </ul>
 
                 <div className="flex gap-2 items-center">
-
-                    <Link to={`${IMAGE_URL}/${book?.file.fileUrl}`} className="bg-blue-600 text-white rounded-md py-1 px-4">Read Book</Link>
+                    {
+                        book?.format === "Ebook" ? 
+                        <Link to={`${IMAGE_URL}/${book?.file.fileUrl}`} className="bg-blue-600 text-white rounded-md py-1 px-4">Read Book</Link>
+                        :
+                        <>
+                            <Button onClick={()=>setPlay(!play)} style={{backgroundColor:"blue", border:"none", color:"white"}}>
+                            <TbPlayerPlayFilled/>
+                               {play ? "stop playing book" : "Play book"}
+                            </Button>
+                        </>
+                    }
+                                        
 
                  {token ?    
                     <Button onClick={addToFavourite} style={{backgroundColor:"orange", border:"none", color:"white"}}>
@@ -194,7 +214,13 @@ const ViewPage = () => {
             </div>
         </div>
     </section>
-
+    {
+        play ?
+        <div className="fixed bottom-0 left-0 w-[100%] p-5 bg-white">
+            <AudioPlayer src={`${IMAGE_URL}/${book?.file.fileUrl}`} onPlay={()=>setPlay(true)} /> 
+        </div>
+         : null
+    }
     </>
   )
 }

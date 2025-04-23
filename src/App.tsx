@@ -5,9 +5,10 @@ import LoginPage from "./pages/login"
 import SignUpPage from "./pages/signup"
 import ProfilePage from "./pages/profile"
 import { EbookPage } from "./pages/books"
-import AudioBooks from "./pages/audiobooks"
+// import AudioBooks from "./pages/audiobooks"
 import ViewPage from "./pages/view"
 import Footer from "./components/custom/footer"
+import { AudioBooks } from "./pages/audiobooks"
 
 function App() {
  
