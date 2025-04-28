@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
     
       <div>
-        <h2 className="text-2xl font-bold text-blue-400">EbookZone</h2>
+        <h2 className="text-2xl font-bold text-blue-400">AL-HIKMAH.</h2>
         <p className="mt-2 text-sm text-gray-400">
           Discover, read, and listen to your favorite ebooks and audiobooks all in one place.
         </p>
@@ -44,7 +44,7 @@ const Footer = () => {
     </div>
 
     <div className="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-500">
-      &copy; 2025 EbookZone. All rights reserved.
+      &copy; 2025 AL-HIKMAH. All rights reserved.
     </div>
   </div>
 </footer>

@@ -3,27 +3,44 @@ import { Avatar } from "antd"
 
 import { useEffect, useState } from "react"
 import { Menu, X } from "lucide-react";
+import axios from "axios";
+import { API_URL } from "@/utils/server";
 
 
 
 const Navbar = () => {
 
-  // const [active, setActive] = useState(false)
+  const [active, setActive] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false);
-  const [token, setToken] = useState("")
+  // const [user, setUser] = useState([])
+  
+  const currentUser = localStorage.getItem("token")
 
-  const getUser = () => {
-    const currentUser = localStorage.getItem("token")
-    if (currentUser) {
-      setToken(currentUser)
-    } else {
-      setToken("")
+  const fetchUser= async()=>{
+    if(currentUser){
+       await axios.get(`${API_URL}/get/user`, {
+            headers: {
+                "Authorization" : `Bearer ${currentUser}`
+            }
+        })
+        // setUser(data.message)
+        setActive(true)
+    }else{
+      setActive(false)
     }
-  }
+}
+  // const getUser = () => {
+  //   if (currentUser) {
+  //     setToken(currentUser)
+  //     setActive(true)
+  //   } else {
+  //     setActive(false)
+  //   }
+  // }
 
   useEffect(() => {
-    // fetchUser()
-    getUser()
+    // getUser()
+    fetchUser()
   }, [])
 
   return (
@@ -48,8 +65,9 @@ const Navbar = () => {
     <nav className="bg-white shadow fixed w-full top-0 left-0 z-[9999999999]">
       <div className="max-w-7xl mx-auto px-5 py-1 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="font-bold text-2xl">
-          Al<span className="text-emerald-600">Hikma</span>
+        <Link to="/" className=" text-2xl">
+            AL-HIKMAH
+          {/* Al<span className="text-emerald-600">hikma</span> */}
         </Link>
 
         {/* Hamburger button (mobile) */}
@@ -66,12 +84,12 @@ const Navbar = () => {
             menuOpen ? "block" : "hidden"
           } md:flex flex-col md:flex-row md:items-center gap-5 absolute md:static top-full left-0 w-full md:w-auto bg-white md:bg-transparent px-5 md:px-0 py-4 md:py-0 shadow md:shadow-none`}
         >
-          <Link to="/" className="block">Home</Link>
-          <Link to="/books" className="block">Books</Link>
-          <Link to="/audiobook" className="block">Audiobooks</Link>
+          <Link to="/" className="block my-3">Home</Link>
+          <Link to="/books" className="block my-3">Books</Link>
+          <Link to="/audiobook" className="block my-3">Audiobooks</Link>
           {/* <Link to="/categories" className="block">Categories</Link> */}
 
-          {token ? (
+          {active ? (
             <Link to="/profile" className="block">
               <Avatar src={""} />
             </Link>

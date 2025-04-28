@@ -153,10 +153,12 @@ const Homepage = () => {
         <hr />
 
       <section className="min-h-screen flex justify-center items-center flex-wrap-reverse gap-10 p-5">
-          <img src="/assets/aboutimg.png" alt="" className="md:w-[500px]"/>
-          <div className="md:flex-1 w-[100%ss]">
+          <img src="/assets/schoollogo.jpg" alt="" className="md:w-[300px] w-[200px]"/>
+          <div className="md:w-[500px] w-[100%]">
             <h1 className="text-3xl font-bold">About this <span className="text-blue-600">Project</span> </h1>
-            <p className="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem culpa, harum cumque laudantium fugiat inventore vitae sequi doloribus dolore aliquid, minus maxime aliquam, sed mollitia consectetur itaque natus corporis nobis iste eum ipsa dolores eaque unde. Consectetur, magnam nisi. Illum explicabo qui aliquam voluptates nobis tenetur dolores officiis veniam. Totam magni suscipit nisi error sunt quas similique vitae ratione praesentium sequi? Perspiciatis totam id labore sint quidem laudantium dolore fuga numquam ipsam, laborum, dicta inventore assumenda magnam! Vitae pariatur vero placeat eligendi illo, debitis voluptas, ipsa at sed quae maxime nobis? Illo, vitae asperiores. Animi ipsa fugit enim rem atque odio maxime. Ducimus nam deserunt aliquam fugiat facilis obcaecati, accusantium dicta enim explicabo facere at maxime libero provident neque blanditiis inventore, dolore excepturi ut architecto recusandae veniam nemo veritatis! Hic, aliquid vero debitis commodi eius ipsa esse voluptas nulla ea ratione, fuga iusto impedit. Accusantium illo voluptates quae corporis expedita. Dolor nesciunt molestiae, facere numquam illo vero aspernatur incidunt ullam, minus magnam nulla inventore laudantium nobis molestias non voluptatibus rem debitis iusto nisi eum illum repudiandae ipsam deserunt? Quia pariatur, optio, reiciendis necessitatibus eaque, officia voluptas nesciunt quibusdam quisquam esse aut exercitationem deserunt et aliquid velit eos sapiente eligendi laborum.</p>
+            <p className="text-justify mb-5">Our Library Management System is an innovative digital library management solution designed to bridge traditional book lending with modern technology enhancements by incorporating audiobook support using the MERN Stack framework. The system offers a highly interactive and personalized experience for readers and administrators alike.
+            </p>
+            <p className="text-justify">This project aims to make libraries more accessible, efficient, and future-ready, catering to the evolving needs of users who seek both reading and listening options in a single unified platform.</p>
           </div>
       </section>
 
