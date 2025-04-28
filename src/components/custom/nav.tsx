@@ -49,7 +49,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-5 py-1 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="font-bold text-2xl">
-          Book<span className="text-blue-600">verse</span>
+          Al<span className="text-emerald-600">Hikma</span>
         </Link>
 
         {/* Hamburger button (mobile) */}

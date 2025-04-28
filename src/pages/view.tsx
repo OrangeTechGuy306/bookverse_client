@@ -53,7 +53,6 @@ const ViewPage = () => {
         }
     }
 
-
     const getUser = () => {
         const currentUser = localStorage.getItem("token")
         if (currentUser) {
@@ -65,7 +64,9 @@ const ViewPage = () => {
     
     const fetchSingleBook = async()=>{
         try {
-            const {data} = await axios.get(`${API_URL}/book/${id}`)
+            const {data} = await axios.get(`${API_URL}/book/${id}`,{
+                responseType:"stream"
+            })
             setBook(data.message)
             // eslint-disable-next-line
         } catch (error: any) {
@@ -153,7 +154,6 @@ const ViewPage = () => {
                     </Button>
                     :
                     null
-                   
                 }
                 </div>
             </div>
