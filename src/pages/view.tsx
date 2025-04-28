@@ -64,9 +64,7 @@ const ViewPage = () => {
     
     const fetchSingleBook = async()=>{
         try {
-            const {data} = await axios.get(`${API_URL}/book/${id}`,{
-                responseType:"stream"
-            })
+            const {data} = await axios.get(`${API_URL}/book/${id}`)
             setBook(data.message)
             // eslint-disable-next-line
         } catch (error: any) {
