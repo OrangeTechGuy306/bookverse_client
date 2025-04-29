@@ -5,11 +5,13 @@ import { toast } from "sonner"
 import { BookProps } from "./books"
 import axios from "axios"
 import { API_URL, IMAGE_URL } from "@/utils/server"
+import { useNavigate } from "react-router-dom"
 
 
 const Homepage = () => {
 
 
+  const navigate = useNavigate()
   const [audios, setAudios] = useState<BookProps[]>()
   const [ebooks, setEbooks] = useState<BookProps[]>()
   const [random, setRandom] = useState<BookProps[]>()
@@ -36,6 +38,8 @@ const Homepage = () => {
     }
   }
 
+  const gotoAudiobook = ()=> navigate("audiobook")
+  const gotoBook = ()=> navigate("books")
 
 
   const fectchRandomBooks = async()=>{
@@ -63,8 +67,8 @@ const Homepage = () => {
         <div className="md:w-[500px]">
           <h1 className="md:text-6xl font-bold text-white md:text-left text-center text-4xl">Books are the training weight <span className="font-normal text-blue-600"> of the mind.</span></h1>
           <div className="flex items-center gap-4 mt-4 md:justify-start justify-center">
-            <Button style={{backgroundColor: "blue", color: "white", border: "none"}}>Ebooks</Button>
-            <Button style={{backgroundColor: "orange", color: "white", border: "none"}}>Audiobooks</Button>
+            <Button style={{backgroundColor: "blue", color: "white", border: "none"}} onClick={gotoBook}>Ebooks</Button>
+            <Button style={{backgroundColor: "orange", color: "white", border: "none"}} onClick={gotoAudiobook}>Audiobooks</Button>
           </div>
         </div>
         <div>

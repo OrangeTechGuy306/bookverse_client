@@ -24,6 +24,7 @@ const ViewPage = () => {
     const [message, setMessage] = useState("")
     const [token, setToken] = useState("")
     const [play, setPlay] = useState(false)
+    // const [audioUrl, setAudioUrl] = useState("")
 
     // eslint-disable-next-line
     const addNewReview = async(e:any)=>{
@@ -53,6 +54,8 @@ const ViewPage = () => {
         }
     }
 
+
+
     const getUser = () => {
         const currentUser = localStorage.getItem("token")
         if (currentUser) {
@@ -66,6 +69,10 @@ const ViewPage = () => {
         try {
             const {data} = await axios.get(`${API_URL}/book/${id}`)
             setBook(data.message)
+            if(data?.message?.format === "Audiobook"){
+                setAudioUrl(data?.message?.file.fileUrl)
+                // const 
+            }
             // eslint-disable-next-line
         } catch (error: any) {
             toast.error(error.response.data.message ?? "Client side error")
@@ -87,10 +94,6 @@ const ViewPage = () => {
             toast.error(error.response.data.message ?? "Client side error")
         }
     }
-
-    // const readBook = (url: string)=>{
-    //     navigate(`/${IMAGE_URL}/${url}`)
-    // }
 
     useEffect(()=>{
         fetchSingleBook()
