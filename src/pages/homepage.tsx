@@ -38,8 +38,8 @@ const Homepage = () => {
     }
   }
 
-  const gotoAudiobook = ()=> navigate("audiobook")
-  const gotoBook = ()=> navigate("books")
+  const gotoAudiobook = ()=> navigate("/audiobook")
+  const gotoBook = ()=> navigate("/books")
 
 
   const fectchRandomBooks = async()=>{

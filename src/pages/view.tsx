@@ -69,17 +69,13 @@ const ViewPage = () => {
         try {
             const {data} = await axios.get(`${API_URL}/book/${id}`)
             setBook(data.message)
-            if(data?.message?.format === "Audiobook"){
-                setAudioUrl(data?.message?.file.fileUrl)
-                // const 
-            }
             // eslint-disable-next-line
         } catch (error: any) {
             toast.error(error.response.data.message ?? "Client side error")
         }
     }
 
-    // eslint-disable-next-line
+
     const addToFavourite = async()=>{
         try {
             const {data} = await axios.patch(`${API_URL}/favourite`, {bookID:id, image_url: book?.coverUrl, title:book?.title},{
