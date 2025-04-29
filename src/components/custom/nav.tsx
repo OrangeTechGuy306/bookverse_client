@@ -3,8 +3,7 @@ import { Avatar } from "antd"
 
 import { useEffect, useState } from "react"
 import { Menu, X } from "lucide-react";
-import axios from "axios";
-import { API_URL } from "@/utils/server";
+
 
 
 
@@ -12,35 +11,22 @@ const Navbar = () => {
 
   const [active, setActive] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false);
-  // const [user, setUser] = useState([])
   
   const currentUser = localStorage.getItem("token")
 
-  const fetchUser= async()=>{
-    if(currentUser){
-       await axios.get(`${API_URL}/get/user`, {
-            headers: {
-                "Authorization" : `Bearer ${currentUser}`
-            }
-        })
-        // setUser(data.message)
-        setActive(true)
-    }else{
+  
+  const getUser = () => {
+    if (currentUser) {
+      // setToken(currentUser)
+      setActive(true)
+    } else {
       setActive(false)
     }
-}
-  // const getUser = () => {
-  //   if (currentUser) {
-  //     setToken(currentUser)
-  //     setActive(true)
-  //   } else {
-  //     setActive(false)
-  //   }
-  // }
+  }
 
   useEffect(() => {
-    // getUser()
-    fetchUser()
+    getUser()
+    // fetchUser()
   }, [])
 
   return (
